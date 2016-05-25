@@ -1,7 +1,6 @@
 pkg/
 .vagrant
 /cookbooks
-Berksfile.lock
 bin/*
 .bundle/*
 .kitchen/
