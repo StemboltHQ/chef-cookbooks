@@ -1,3 +1,7 @@
+# General Deployment
+node.default[:deploy_user] = "deploy"
+node.default[:deploy_group] = "deploy"
+
 # Ruby
 
 node.default[:ruby_version] = "2.3.1"
