@@ -15,5 +15,6 @@ busser:
 suites:
   - name: rails_app_server
     run_list:
+      - recipe[stembolt_opsworks::user]
       - recipe[stembolt_opsworks::ruby]
     attributes:
