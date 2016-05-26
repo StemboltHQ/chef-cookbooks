@@ -7,6 +7,10 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
+  - name: centos-7.2
+
+busser:
+  sudo: false
 
 suites:
   - name: rails_app_server
