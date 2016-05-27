@@ -58,6 +58,9 @@ unzip /tmp/#{release_stamp}.zip -d #{release_dir}
   end
 
   application prefix do
+    owner node[:deploy_user]
+    group node[:deploy_group]
+
     bundle_install do
       deployment true
     end
