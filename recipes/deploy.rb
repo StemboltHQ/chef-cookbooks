@@ -10,6 +10,7 @@ search("aws_opsworks_app").each do |app|
   directory release_dir do
     recursive true
     owner node[:deploy_user]
+    group node[:deploy_group]
   end
 
   case source["type"]
@@ -52,6 +53,7 @@ search("aws_opsworks_app").each do |app|
       code <<-EOH
 unzip /tmp/#{release_stamp}.zip -d #{release_dir}
       EOH
+      user node[:deploy_user]
     end
   else
     raise "Unsupported app source. Only S3 archives are supported at this time."
