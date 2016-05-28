@@ -25,10 +25,6 @@ execute "install ruby" do
   not_if { File.exist?("#{node[:ruby_prefix]}/bin/ruby") }
 end
 
-if ["centos", "amazon", "redhat"].include?(node["platform"])
-  package "ed"
-end
-
 bash "insert ruby into bashrc" do
   # Since on Debian-based distros it aborts at the top if it's non-interactive,
   # we can't just append a line, we need to hack it into the top. Thanks, Debian.
