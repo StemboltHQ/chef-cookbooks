@@ -62,6 +62,7 @@ unzip /tmp/#{release_stamp}.zip -d #{release_dir}
     group node[:deploy_group]
 
     bundle_install do
+      user node[:deploy_user]
       deployment true
     end
 
@@ -72,6 +73,7 @@ unzip /tmp/#{release_stamp}.zip -d #{release_dir}
 
     unicorn do
       port 5000
+      user node[:deploy_user]
     end
   end
 end
