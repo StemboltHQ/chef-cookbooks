@@ -5,8 +5,8 @@ application to AWS Opsworks with minimal work.
 
 Add the following recipes to the respective lifecycle events:
 
-* **Setup**: `stembolt_opsworks::ruby`
+* **Setup**: `stembolt_opsworks::dependencies`, `stembolt_opsworks::ruby`
 * **Configure**:
-* **Deploy**:
+* **Deploy**: `stembolt_opsworks::deploy`
 * **Undeploy**:
 * **Shutdown**:
