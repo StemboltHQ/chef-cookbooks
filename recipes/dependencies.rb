@@ -39,6 +39,15 @@ package "common rails gem extensions" do
   end
 end
 
+package "ruby dependencies" do
+  case node["platform"]
+  when "ubuntu", "debian"
+    package_name ["zlib1g-dev", "libyaml-dev", "libssl-dev", "libgdbm-dev", "libreadline-dev", "libncurses5-dev", "libffi-dev"]
+  when "redhat", "centos", "amazon"
+    package_name ["zlib-devel", "libyaml-devel", "openssl-devel", "gdbm-devel", "readline-devel", "ncurses-devel", "libffi-devel"]
+  end
+end
+
 # TODO: make each of these optionally installed via a data bag attribute
 package "install mysql headers" do
   case node["platform"]

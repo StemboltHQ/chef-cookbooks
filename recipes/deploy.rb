@@ -1,4 +1,5 @@
 include_recipe "stembolt_opsworks::user"
+include_recipe "stembolt_opsworks::stembolt_ruby_provider"
 
 # Set up folder structure for apps
 search("aws_opsworks_app").each do |app|
@@ -62,7 +63,10 @@ unzip /tmp/#{release_stamp}.zip -d #{release_dir}
   application release_dir do
     owner node[:deploy_user]
     group node[:deploy_group]
-    environment({"PATH" => "/usr/local/ruby/bin:$PATH"})
+
+    ruby node[:ruby_version] do
+      provider :stembolt
+    end
 
     bundle_install do
       user node[:deploy_user]
