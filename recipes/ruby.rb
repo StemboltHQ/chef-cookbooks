@@ -37,3 +37,7 @@ wq
 EOF
 EOR
 end
+
+bash "install bundler" do
+  code "/usr/local/ruby/bin/gem install bundler --no-ri --no-rdoc"
+end
