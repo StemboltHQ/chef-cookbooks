@@ -1,3 +1,14 @@
+# Install Ruby dependencies
+# Even though we compile elsewhere, we still need the library headers to link to
+package "ruby dependencies" do
+  case node["platform"]
+  when "ubuntu", "debian"
+    package_name ["zlib1g-dev", "libyaml-dev", "libssl-dev", "libgdbm-dev", "libreadline-dev", "libncurses5-dev", "libffi-dev"]
+  when "redhat", "centos", "amazon"
+    package_name ["zlib-devel", "libyaml-devel", "openssl-devel", "gdbm-devel", "readline-devel", "ncurses-devel", "libffi-devel"]
+  end
+end
+
 remote_file "/tmp/ruby-#{node[:ruby_version]}.tar.gz" do
   case node["platform"]
   when "ubuntu", "debian"
