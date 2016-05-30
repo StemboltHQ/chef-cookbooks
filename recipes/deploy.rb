@@ -62,6 +62,7 @@ unzip /tmp/#{release_stamp}.zip -d #{release_dir}
   application release_dir do
     owner node[:deploy_user]
     group node[:deploy_group]
+    environment({"PATH" => "/usr/local/ruby/bin:$PATH"})
 
     bundle_install do
       user node[:deploy_user]
