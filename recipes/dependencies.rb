@@ -1,4 +1,12 @@
 package "git"
+package "unzip"
+
+if ["debian", "ubuntu"].include?(node["platform"])
+  # Debian/Ubuntu doesn't update its mirrors before installing things, so we
+  # could run into a situation where the indexes are out of date and package
+  # start 404ing.
+  execute "apt-get update"
+end
 
 if ["centos", "amazon", "redhat"].include?(node["platform"])
   package "ed"
