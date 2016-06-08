@@ -1,6 +1,10 @@
 package "git"
 package "unzip"
 
+package "javascript runtime" do
+  package_name "nodejs"
+end
+
 if ["debian", "ubuntu"].include?(node["platform"])
   # Debian/Ubuntu doesn't update its mirrors before installing things, so we
   # could run into a situation where the indexes are out of date and package
